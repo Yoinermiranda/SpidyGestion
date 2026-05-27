@@ -4,10 +4,8 @@ import Login from './pages/Login';
 import AdminDashboard from './pages/AdminDashboard';
 import CajeroDashboard from './pages/CajeroDashboard';
 import MeseroDashboard from './pages/MeseroDashboard';
-<<<<<<< HEAD
 import CocinaDashboard from './pages/Cocinadashboard';
-=======
->>>>>>> e03a8546f00feda10554b319be01b19b320e7285
+
 import { getStoredUser } from './utils/session';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -46,7 +44,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-<<<<<<< HEAD
          <Route
           path="/cocina"
           element={
@@ -55,8 +52,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-=======
->>>>>>> e03a8546f00feda10554b319be01b19b320e7285
+
       </Routes>
     </BrowserRouter>
   );
