@@ -307,7 +307,6 @@ router.post('/:id/void', verifyToken, requireRole(['ADMIN', 'CAJERO']), async (r
     console.error("VOID ORDER ERROR:", error);
     res.status(500).json({ error: 'Error interno al anular la orden' });
   }
-});
-
+})
 export default router; 
 
