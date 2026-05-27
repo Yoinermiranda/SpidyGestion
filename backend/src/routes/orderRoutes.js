@@ -309,5 +309,5 @@ router.post('/:id/void', verifyToken, requireRole(['ADMIN', 'CAJERO']), async (r
   }
 });
 
-export default router;
+export default router; 
 
