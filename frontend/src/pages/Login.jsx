@@ -29,8 +29,12 @@ function Login() {
 
       if (data.user.rol === 'ADMIN') navigate('/admin');
       else if (data.user.rol === 'CAJERO') navigate('/cajero');
+<<<<<<< HEAD
       else if (data.user.rol === 'MESERO') navigate('/mesero');
       else if (data.user.rol === 'COCINA') navigate('/cocina');
+=======
+      else navigate('/mesero');
+>>>>>>> e03a8546f00feda10554b319be01b19b320e7285
     } catch (error) {
       console.error('Login request error:', error);
       setError('Error de conexion con el servidor.');
@@ -46,6 +50,7 @@ function Login() {
 
       <div className="relative z-10 flex w-full max-w-md flex-col items-center rounded-3xl border border-white/20 bg-white/10 p-10 shadow-2xl backdrop-blur-xl">
         <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 shadow-lg transition-all duration-300 hover:rotate-0 -rotate-3">
+<<<<<<< HEAD
          <svg className="h-10 w-10 text-white" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2">
   <path d="M16 36a16 16 0 0 1 32 0M12 36h40" strokeLinecap="round" strokeLinejoin="round"/>
   <circle cx="32" cy="18" r="2" fill="currentColor"/>
@@ -53,6 +58,15 @@ function Login() {
         </div>
 
         <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-white drop-shadow-md">MGR</h1>
+=======
+          <svg className="h-10 w-10 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+
+        <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-white drop-shadow-md">SpidyGestion</h1>
+>>>>>>> e03a8546f00feda10554b319be01b19b320e7285
         <p className="mb-6 text-center text-sm text-gray-300 drop-shadow-sm">Ingresa tu PIN de seguridad para comenzar tu turno.</p>
 
         {error && (

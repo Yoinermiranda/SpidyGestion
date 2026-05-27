@@ -83,8 +83,7 @@ router.post('/', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Error al procesar la comanda' });
   }
 });
-
-// 2. Obtener listado de pedidos por estado
+// r listado de pedidos por estado
 router.get('/', verifyToken, async (req, res) => {
   try {
     const estado = typeof req.query.estado === 'string' ? req.query.estado.trim().toUpperCase() : undefined;
@@ -123,7 +122,10 @@ router.get('/mesa/:id', verifyToken, async (req, res) => {
   }
 });
 
+
 // 4. Obtener listado de pedidos a Domicilio (Delivery)
+
+// 3. Obtener listado de pedidos a Domicilio (Delivery)
 router.get('/delivery', verifyToken, async (req, res) => {
   try {
     const orders = await prisma.order.findMany({
@@ -307,4 +309,8 @@ router.post('/:id/void', verifyToken, requireRole(['ADMIN', 'CAJERO']), async (r
   }
 });
 
+<<<<<<< HEAD
 export default router;
+=======
+export default router;
+>>>>>>> e03a8546f00feda10554b319be01b19b320e7285
