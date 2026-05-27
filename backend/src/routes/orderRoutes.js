@@ -84,7 +84,31 @@ router.post('/', verifyToken, async (req, res) => {
   }
 });
 
-// 2. Consultar cuenta de mesa abierta (Cajero)
+// 2. Obtener listado de pedidos por estado
+router.get('/', verifyToken, async (req, res) => {
+  try {
+    const estado = typeof req.query.estado === 'string' ? req.query.estado.trim().toUpperCase() : undefined;
+    const where = {
+      estado: { notIn: ['CERRADO', 'CANCELADO'] }
+    };
+
+    if (estado) {
+      where.estado = estado;
+    }
+
+    const orders = await prisma.order.findMany({
+      where,
+      orderBy: { fecha_creacion: 'asc' },
+      include: { items: { include: { producto: true } } }
+    });
+    res.json(orders);
+  } catch (e) {
+    console.error('Order list error:', e);
+    res.status(500).json({ error: 'Error al buscar pedidos' });
+  }
+});
+
+// 3. Consultar cuenta de mesa abierta (Cajero)
 router.get('/mesa/:id', verifyToken, async (req, res) => {
   try {
     const order = await prisma.order.findFirst({
@@ -99,7 +123,7 @@ router.get('/mesa/:id', verifyToken, async (req, res) => {
   }
 });
 
-// 3. Obtener listado de pedidos a Domicilio (Delivery)
+// 4. Obtener listado de pedidos a Domicilio (Delivery)
 router.get('/delivery', verifyToken, async (req, res) => {
   try {
     const orders = await prisma.order.findMany({

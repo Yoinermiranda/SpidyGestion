@@ -29,7 +29,8 @@ function Login() {
 
       if (data.user.rol === 'ADMIN') navigate('/admin');
       else if (data.user.rol === 'CAJERO') navigate('/cajero');
-      else navigate('/mesero');
+      else if (data.user.rol === 'MESERO') navigate('/mesero');
+      else if (data.user.rol === 'COCINA') navigate('/cocina');
     } catch (error) {
       console.error('Login request error:', error);
       setError('Error de conexion con el servidor.');
@@ -45,14 +46,13 @@ function Login() {
 
       <div className="relative z-10 flex w-full max-w-md flex-col items-center rounded-3xl border border-white/20 bg-white/10 p-10 shadow-2xl backdrop-blur-xl">
         <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 shadow-lg transition-all duration-300 hover:rotate-0 -rotate-3">
-          <svg className="h-10 w-10 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 3h12v4a6 6 0 01-12 0V3z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 13v8" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8 21h8" />
-        </svg>
+         <svg className="h-10 w-10 text-white" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2">
+  <path d="M16 36a16 16 0 0 1 32 0M12 36h40" strokeLinecap="round" strokeLinejoin="round"/>
+  <circle cx="32" cy="18" r="2" fill="currentColor"/>
+</svg>
         </div>
 
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-white drop-shadow-md">SpidyGestion</h1>
+        <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-white drop-shadow-md">MGR</h1>
         <p className="mb-6 text-center text-sm text-gray-300 drop-shadow-sm">Ingresa tu PIN de seguridad para comenzar tu turno.</p>
 
         {error && (
